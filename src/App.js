@@ -3,12 +3,24 @@ import React, { Component } from "react";
 import Profile from "./components/Profile";
 
 export default class App extends Component {
-
-  render() {
-    return <div>
-      {
-        <class><Profile/></class>
-      }
-    </div>
+  constructor() {
+    super();
+    this.state = {
+      bol: false
+    }
   }
+  render() {
+    return(
+    <div>
+      <button
+        onClick={() => {
+          this.setState({ bol: !this.state.bol });
+        }}
+      >
+        {" "}
+        afficher{" "}
+        </button>
+    {this.state.bol && <Profile />}
+    </div>
+  )}
 }
